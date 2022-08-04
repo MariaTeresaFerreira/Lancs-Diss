@@ -36,15 +36,16 @@ def get_admin_users():
             admin_users.append(entry[0])
     return admin_users
 
-def parse_employee_data():
-    #file_path = open(os.path.dirname(__file__) + "/EmployeeData.xml","r")
-    tree = ET.parse('diss/EmployeeData.xml')
+def get_username_privileges():
+    employee_list = [] 
+    tree = ET.parse(os.path.dirname(__file__) + '/EmployeeData.xml')
     root = tree.getroot()
     for employee in root:
-        print(employee.attrib)
-
-
-parse_employee_data()
+        dic = {}
+        dic["username"] = employee.attrib["user"]
+        dic["privilege"] = employee.attrib["privilege"]
+        employee_list.append(dic)
+    return employee_list
 
 
 def configs_check_1():
@@ -66,3 +67,32 @@ def configs_check_3():
         if name == "DisableAutoplay" and data == 1:
             return True
     return "scc_03"
+
+def configs_check_4():
+    '''Checks if active users are as expected'''
+    expected_users = []
+    for user in get_username_privileges():
+        expected_users.append(user["username"])
+
+    active_users = get_active_users()
+
+    if sorted(active_users) == sorted(expected_users):
+        return True
+    else:
+        return "ssc_04"
+
+
+def configs_check_5():
+    '''Checks if Administrator users are as expected'''
+    users_input = get_username_privileges()
+    admins_input = []
+    active_admins = list(set(get_active_users()) & set(get_admin_users()))
+
+    for user in users_input:
+        if user["privilege"] == "administrator":
+            admins_input.append(user["username"])
+    
+    if sorted(active_admins) == sorted(admins_input):
+        return True
+    else:
+        return "ssc_05"

@@ -14,6 +14,8 @@ if __name__ == "__main__":
     print("SECURE CONFIGURATION CHECKS: ")
     ext.print_tests(1, scc.configs_check_1())
     ext.print_tests(3, scc.configs_check_3())
+    ext.print_tests(4, scc.configs_check_4())
+    ext.print_tests(5, scc.configs_check_5())
 
 
     

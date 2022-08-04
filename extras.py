@@ -7,7 +7,9 @@ class colours:
 
 errors = {
     "scc_01": "Guest or Administrator user is enabled, confirm if this is necessary",
-    "scc_03": "Autoplay is enabled"
+    "scc_03": "Autoplay is enabled",
+    "ssc_04": "Active users are not as expected",
+    "ssc_05": "Administrator users are not as expected"
 }
 
 #print(f"{colours.YELLOW}===== STARTING ", test_file, f" CHECKS =====\n{colours.DEFAULT}")

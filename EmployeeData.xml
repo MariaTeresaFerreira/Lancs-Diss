@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0"?>
 <EmployeeData>
-    <Employee user = "j.doe" privilege = "standard">
-        <FirstName>John</FirstName>
-        <LastName>Doe</LastName>
-        <Privileges>Standard</Privileges>
-    </Employee>
+    
     <Employee user = "Maria" privilege = "administrator">
         <FirstName>Maria</FirstName>
         <LastName>Ferreira</LastName>
         <Privileges>Administrator</Privileges>
+    </Employee>
+    <Employee user = "j.doe" privilege = "standard">
+        <FirstName>John</FirstName>
+        <LastName>Doe</LastName>
+        <Privileges>Standard</Privileges>
     </Employee>
 </EmployeeData>
