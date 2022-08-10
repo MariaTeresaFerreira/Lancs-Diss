@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0"?>
 <EmployeeData>
-    
     <Employee user = "Maria" privilege = "administrator">
         <FirstName>Maria</FirstName>
         <LastName>Ferreira</LastName>

@@ -1,14 +1,17 @@
 import win32evtlog
 import xml.etree.ElementTree as ET
+from elevate import elevate
+
+elevate()
 
 #channel = 'Microsoft-Windows-Windows Defender/Operational'
+channel = 'Security'
 #channel = 'Microsoft-Windows-Windows Firewall With Advanced Security/Firewall'
 
-channel = 'Microsoft-Windows-PushNotification-Platform/Operational'
+#channel = 'Microsoft-Windows-PushNotification-Platform/Operational'
 
 
 def on_event(action, context, event_handle):
-    print("CAUGHT EVENT")
     if action == win32evtlog.EvtSubscribeActionDeliver:
         xml = ET.fromstring(win32evtlog.EvtRender(event_handle, win32evtlog.EvtRenderEventXml))
         # xml namespace, root element has a xmlns definition, so we have to use the namespace
@@ -32,6 +35,7 @@ handle = win32evtlog.EvtSubscribe(
     Callback = on_event)
 
 # Wait for user to hit enter...
+print("before 2nd input")
 input()
 
 win32evtlog.CloseEventLog(handle)
