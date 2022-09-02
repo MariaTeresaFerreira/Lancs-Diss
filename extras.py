@@ -9,12 +9,15 @@ class Colours:
 
 class Errors(Enum):
     OK = "Test passed"
-    FWC_01 = "At least one domain of the Firewall is not enabled"
-    FWC_02 = "At least on domain of the Firewall has remote access enabled"
-    SCC_01 = "Guest or Administrator user is enabled, confirm if this is necessary"
-    SCC_02 = "Autoplay is enabled"
-    SCC_03 = "Active users are not as expected"
-    SCC_04 = "Administrator users are not as expected"
+    ERR_01 = "At least one domain of the Firewall is not enabled"
+    ERR_02 = "At least one domain of the Firewall has remote access enabled"
+    ERR_03 = "Guest user is enabled, confirm if this is necessary"
+    ERR_04 = "Autoplay is enabled"
+    ERR_05 = "Active users are not as expected"
+    ERR_06 = "Administrator users are not as expected"
+    ERR_07 = "Non Administrator User has administrator privileges"
+    ERR_08 = "Minimum Password Policy Requirements not met"
+    ERR_09 = "Firewall default rule not set as BlockInbound"
 
 
 def print_tests_colour(number, feedback):
@@ -39,3 +42,4 @@ def print_dicts(dicts):
         #print("===========")
         for elem in dict:
             print(elem, ":", dict[elem])
+
